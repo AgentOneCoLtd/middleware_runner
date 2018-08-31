@@ -1,0 +1,61 @@
+{
+  "name": "@ag1/middleware_runner",
+  "version": "0.1.0",
+  "description": "mimic express middleware execution",
+  "main": "index.js",
+  "author": "agent one co., ltd.",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "compile": "tsc",
+    "test": "jest --env=node",
+    "lint": "tslint -p tsconfig.json -t stylish",
+    "prettier": "yarn prettier-config && yarn prettier-ts",
+    "prettier-config": "prettier --no-config --write './*.{json,yml}'",
+    "prettier-ts": "prettier --write './**/*.ts'"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.9.4",
+    "express": "^4.16.3",
+    "jest": "^23.5.0",
+    "prettier": "^1.14.2",
+    "rxjs": "^6.3.0",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "tslint-microsoft-contrib": "^5.2.1",
+    "typescript": "^3.0.3"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "test",
+    "typescript"
+  ],
+  "repository": {
+    "url": "https://github.com/AgentOneCoLtd/middleware_runner.git",
+    "type": "git"
+  },
+  "readmeFilename": "readme.md",
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!@ag1)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/*.spec.+(ts)"
+    ]
+  }
+}

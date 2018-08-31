@@ -1,0 +1,10 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "strict": true,
+    "target": "ES6",
+    "lib": ["ES6"]
+  },
+  "exclude": ["node_modules"]
+}
