@@ -18,19 +18,21 @@ function assert3ParamsType(middlewareList) {
 exports.assert3ParamsType = assert3ParamsType;
 function middlewareRunner(middlewareList, req, res, next) {
     assert3ParamsType(middlewareList);
-    const listIterator = makeIteratorFromList(middlewareList);
+    const iterator = makeIteratorFromList(middlewareList);
     const myNextFn = (error) => {
         if (error) {
             next(error);
             return;
         }
         next();
-        const { value: nextMiddleware } = listIterator.next();
+        const { value: nextMiddleware } = iterator.next();
         if (nextMiddleware) {
             nextMiddleware(req, res, myNextFn);
         }
     };
-    const { value: firstMiddleware } = listIterator.next();
-    firstMiddleware(req, res, myNextFn);
+    const { value: firstMiddleware } = iterator.next();
+    if (firstMiddleware) {
+        firstMiddleware(req, res, myNextFn);
+    }
 }
 exports.middlewareRunner = middlewareRunner;

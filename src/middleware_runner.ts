@@ -22,7 +22,7 @@ export function assert3ParamsType(middlewareList: RequestHandler[]) {
 export function middlewareRunner(middlewareList: RequestHandler[], req: Request, res: Response, next: NextFunction) {
     assert3ParamsType(middlewareList);
 
-    const listIterator = makeIteratorFromList(middlewareList);
+    const iterator = makeIteratorFromList(middlewareList);
 
     const myNextFn = (error?: any) => {
         if (error) {
@@ -33,12 +33,14 @@ export function middlewareRunner(middlewareList: RequestHandler[], req: Request,
 
         next();
 
-        const { value: nextMiddleware } = listIterator.next();
+        const { value: nextMiddleware } = iterator.next();
         if (nextMiddleware) {
             nextMiddleware(req, res, myNextFn);
         }
     };
 
-    const { value: firstMiddleware } = listIterator.next();
-    firstMiddleware(req, res, myNextFn);
+    const { value: firstMiddleware } = iterator.next();
+    if (firstMiddleware) {
+        firstMiddleware(req, res, myNextFn);
+    }
 }
