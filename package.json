@@ -1,6 +1,6 @@
 {
   "name": "@ag1/middleware_runner",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "mimic express middleware execution",
   "main": "index.js",
   "author": "agent one co., ltd.",
