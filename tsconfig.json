@@ -4,7 +4,8 @@
     "module": "commonjs",
     "strict": true,
     "target": "ES6",
-    "lib": ["ES6"]
+    "lib": ["ES6"],
+    "declaration": true
   },
   "exclude": ["node_modules"]
 }
