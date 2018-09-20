@@ -2,10 +2,13 @@
   "compileOnSave": false,
   "compilerOptions": {
     "module": "commonjs",
-    "strict": true,
+    "moduleResolution": "node",
     "target": "ES6",
     "lib": ["ES6"],
-    "declaration": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "strict": true
   },
   "exclude": ["node_modules"]
 }
