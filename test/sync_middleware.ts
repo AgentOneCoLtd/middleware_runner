@@ -1,5 +1,3 @@
-/* tslint:disable:no-implicit-dependencies */
-
 import { Request, RequestHandler } from 'express';
 
 export function isBoolean(val: any): val is boolean {

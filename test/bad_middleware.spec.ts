@@ -1,6 +1,4 @@
-/* tslint:disable:no-unsafe-any */
-
-import { middlewareRunner } from '../index';
+import { middlewareRunner } from '../src';
 import { allM } from './bad_middleware';
 
 it('should call res.json 1 time, next 3', () => {

@@ -1,7 +1,0 @@
-*.*
-*/
-!*.d.ts
-*.spec.d.ts
-!*.js
-*.spec.js
-!package.json

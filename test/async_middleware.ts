@@ -1,5 +1,3 @@
-/* tslint:disable:no-implicit-dependencies */
-
 import { Request, RequestHandler } from 'express';
 import { Observable, Observer } from 'rxjs';
 

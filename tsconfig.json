@@ -4,11 +4,11 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "ES6",
-    "lib": ["ES6"],
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "outDir": "./lib",
     "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "strict": true
   },
-  "exclude": ["node_modules"]
+  "include": ["./src/**/*.ts"]
 }

@@ -1,6 +1,4 @@
-/* tslint:disable:no-unsafe-any */
-
-import { middlewareRunner } from '../index';
+import { middlewareRunner } from '../src';
 import { allM } from './sync_middleware';
 
 describe('res.json', () => {

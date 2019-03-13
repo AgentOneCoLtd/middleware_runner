@@ -1,5 +1,3 @@
-/* tslint:disable:no-implicit-dependencies */
-
 import { RequestHandler } from 'express';
 
 export const m1: RequestHandler = (_req, res, _next) => {

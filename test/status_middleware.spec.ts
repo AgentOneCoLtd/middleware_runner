@@ -1,6 +1,4 @@
-/* tslint:disable:no-unsafe-any */
-
-import { middlewareRunner } from '../index';
+import { middlewareRunner } from '../src';
 import { allM } from './status_middleware';
 
 it('should call res.status and res.json at m1', async () => {

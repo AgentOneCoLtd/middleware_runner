@@ -1,0 +1,16 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "outDir": "./lib-module",
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": true,
+    "strict": true
+  },
+  "include": ["./src/**/*.ts"],
+  "exclude": ["**/*.spec.ts"]
+}

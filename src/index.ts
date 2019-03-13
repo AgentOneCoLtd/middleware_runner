@@ -1,5 +1,4 @@
-/* tslint:disable:no-implicit-dependencies */
-
+import { isNil } from '@ag1/nil';
 import { NextFunction, Request, RequestHandler, Response } from 'express';
 import { inspect } from 'util';
 
@@ -24,8 +23,9 @@ export function middlewareRunner(middlewareList: RequestHandler[], req: Request,
 
     const iterator = makeIteratorFromList(middlewareList);
 
-    const myNextFn = (error?: any) => {
-        if (error) {
+    // tslint:disable-next-line no-any
+    const myNextFn = (error: any) => {
+        if (!isNil(error)) {
             next(error);
 
             return;
@@ -34,13 +34,13 @@ export function middlewareRunner(middlewareList: RequestHandler[], req: Request,
         next();
 
         const { value: nextMiddleware } = iterator.next();
-        if (nextMiddleware) {
+        if (!isNil(nextMiddleware)) {
             nextMiddleware(req, res, myNextFn);
         }
     };
 
     const { value: firstMiddleware } = iterator.next();
-    if (firstMiddleware) {
+    if (!isNil(firstMiddleware)) {
         firstMiddleware(req, res, myNextFn);
     }
 }

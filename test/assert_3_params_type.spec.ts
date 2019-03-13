@@ -1,7 +1,5 @@
-/* tslint:disable:no-unsafe-any no-implicit-dependencies */
-
 import { ErrorRequestHandler, NextFunction, Request, RequestHandler, Response } from 'express';
-import { assert3ParamsType } from '../index';
+import { assert3ParamsType } from '../src';
 
 it('should return true if all are valid', () => {
     const m1: RequestHandler = (_req: Request, _res: Response, next: NextFunction) => {

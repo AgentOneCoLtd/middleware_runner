@@ -1,0 +1,14 @@
+{
+  "extends": ["tslint-microsoft-contrib"],
+  "rules": {
+    "newline-per-chained-call": false,
+    "no-any": false,
+    "no-implicit-dependencies": false,
+    "no-relative-imports": false,
+    "no-unsafe-any": false,
+    "prefer-type-cast": false,
+    "trailing-comma": true,
+    "typedef": false,
+    "variable-name": false
+  }
+}

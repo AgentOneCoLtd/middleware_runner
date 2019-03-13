@@ -1,6 +1,4 @@
-/* tslint:disable:no-unsafe-any */
-
-import { middlewareRunner } from '../index';
+import { middlewareRunner } from '../src';
 import { allM, m1, m2, m3 } from './async_middleware';
 
 describe('verify mocked middleware behavior', () => {
