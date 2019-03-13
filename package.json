@@ -51,6 +51,7 @@
   "files": [
     "lib",
     "lib-module",
-    "src"
+    "src",
+    "test"
   ]
 }
