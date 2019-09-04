@@ -1,7 +1,0 @@
-{
-  "extends": ["tslint-microsoft-contrib"],
-  "rules": {
-    "no-implicit-dependencies": false,
-    "typedef": false
-  }
-}

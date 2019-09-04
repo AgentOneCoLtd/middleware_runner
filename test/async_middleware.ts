@@ -28,7 +28,7 @@ export const m1: RequestHandler = (req: IMyRequest, res, next) => {
         return;
     }
 
-    new Observable((observer: Observer<string>) => {
+    new Observable((observer: Observer<string>): void => {
         setTimeout(() => {
             observer.next('pass m1');
         }, 1000);
@@ -55,7 +55,7 @@ export const m2: RequestHandler = (req: IMyRequest, res, next) => {
         return;
     }
 
-    new Observable((observer: Observer<string>) => {
+    new Observable((observer: Observer<string>): void => {
         setTimeout(() => {
             observer.next('pass m2');
         }, 1000);
@@ -82,7 +82,7 @@ export const m3: RequestHandler = (req: IMyRequest, res, next) => {
         return;
     }
 
-    new Observable((observer: Observer<string>) => {
+    new Observable((observer: Observer<string>): void => {
         setTimeout(() => {
             observer.next('pass m3');
         }, 1000);

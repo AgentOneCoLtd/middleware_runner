@@ -12,7 +12,7 @@ describe('verify mocked middleware behavior', () => {
         } as any;
         const mockResJson = jest.fn();
         const mockRes = { json: mockResJson } as any;
-        const mockNextFn = () => {
+        const mockNextFn = (): void => {
             const after = Date.now();
 
             expect(after - before).toBeGreaterThan(999);
@@ -33,7 +33,7 @@ describe('verify mocked middleware behavior', () => {
         } as any;
         const mockResJson = jest.fn();
         const mockRes = { json: mockResJson } as any;
-        const mockNextFn = () => {
+        const mockNextFn = (): void => {
             const after = Date.now();
 
             expect(after - before).toBeGreaterThan(999);
@@ -54,7 +54,7 @@ describe('verify mocked middleware behavior', () => {
         } as any;
         const mockResJson = jest.fn();
         const mockRes = { json: mockResJson } as any;
-        const mockNextFn = () => {
+        const mockNextFn = (): void => {
             const after = Date.now();
 
             expect(after - before).toBeGreaterThan(999);
@@ -139,7 +139,7 @@ describe('res.json', () => {
             json: jest.fn(),
         } as any;
         let callMockNextFnCount = 0;
-        const mockNextFn = (error?: any) => {
+        const mockNextFn = (error?: any): void => {
             callMockNextFnCount += 1;
 
             expect(error).toBeUndefined();
@@ -166,7 +166,7 @@ describe('next(error)', () => {
         const mockRes = {
             json: jest.fn(),
         } as any;
-        const mockNextFn = (error?: any) => {
+        const mockNextFn = (error?: any): void => {
             expect(error).toBeInstanceOf(TypeError);
             done();
         };
@@ -185,7 +185,7 @@ describe('next(error)', () => {
             json: jest.fn(),
         } as any;
         let callMockNextFnCount = 0;
-        const mockNextFn = (error?: any) => {
+        const mockNextFn = (error?: any): void => {
             callMockNextFnCount += 1;
 
             if (callMockNextFnCount === 1) {
@@ -213,7 +213,7 @@ describe('next(error)', () => {
             json: jest.fn(),
         } as any;
         let callMockNextFnCount = 0;
-        const mockNextFn = (error?: any) => {
+        const mockNextFn = (error?: any): void => {
             callMockNextFnCount += 1;
 
             if (callMockNextFnCount <= 2) {

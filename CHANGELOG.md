@@ -1,3 +1,7 @@
+## v0.3.0
+
+* Update build process
+
 ## v0.2.0
 
 * Update project structure

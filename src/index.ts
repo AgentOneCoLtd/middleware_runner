@@ -2,13 +2,13 @@ import { isNil } from '@ag1/nil';
 import { NextFunction, Request, RequestHandler, Response } from 'express';
 import { inspect } from 'util';
 
-export function* makeIteratorFromList<T>(list: T[]) {
+export function* makeIteratorFromList<T>(list: T[]): IterableIterator<T> {
     for (const item of list) {
         yield item;
     }
 }
 
-export function assert3ParamsType(middlewareList: RequestHandler[]) {
+export function assert3ParamsType(middlewareList: RequestHandler[]): boolean {
     const not3ParamsTypeList = middlewareList.filter((m) => m.length !== 3);
 
     if (not3ParamsTypeList.length !== 0) {
@@ -18,13 +18,18 @@ export function assert3ParamsType(middlewareList: RequestHandler[]) {
     return true;
 }
 
-export function middlewareRunner(middlewareList: RequestHandler[], req: Request, res: Response, next: NextFunction) {
+export function middlewareRunner(
+    middlewareList: RequestHandler[],
+    req: Request,
+    res: Response,
+    next: NextFunction,
+): void {
     assert3ParamsType(middlewareList);
 
     const iterator = makeIteratorFromList(middlewareList);
 
-    // tslint:disable-next-line no-any
-    const myNextFn = (error: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const myNextFn = (error: any): void => {
         if (!isNil(error)) {
             next(error);
 

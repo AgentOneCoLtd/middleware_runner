@@ -15,7 +15,7 @@ export function assert3ParamsType(middlewareList) {
 export function middlewareRunner(middlewareList, req, res, next) {
     assert3ParamsType(middlewareList);
     const iterator = makeIteratorFromList(middlewareList);
-    // tslint:disable-next-line no-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const myNextFn = (error) => {
         if (!isNil(error)) {
             next(error);
