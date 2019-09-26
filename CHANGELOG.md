@@ -1,3 +1,7 @@
+## v0.3.1
+
+* Support `RequestHandler` from both `express` and `express-serve-static-core`
+
 ## v0.3.0
 
 * Update build process
