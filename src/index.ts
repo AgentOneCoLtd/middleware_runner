@@ -1,6 +1,9 @@
 import { isNil } from '@ag1/nil';
-import { NextFunction, Request, RequestHandler, Response } from 'express';
+import { NextFunction, Request, RequestHandler as ExpressRequestHandler, Response } from 'express';
+import { RequestHandler as ExpressServeStaticCoreRequestHandler } from 'express-serve-static-core';
 import { inspect } from 'util';
+
+export type RequestHandler = ExpressRequestHandler | ExpressServeStaticCoreRequestHandler;
 
 export function* makeIteratorFromList<T>(list: T[]): IterableIterator<T> {
     for (const item of list) {
