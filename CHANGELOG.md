@@ -1,3 +1,8 @@
+## v0.3.2
+
+* Support `Request` from both `express` and `express-serve-static-core`
+* Add generic type
+
 ## v0.3.1
 
 * Support `RequestHandler` from both `express` and `express-serve-static-core`
