@@ -1,7 +1,14 @@
 import { isNil } from '@ag1/nil';
-import { NextFunction, Request as ExpressRequest, RequestHandler as ExpressRequestHandler, Response } from 'express';
+import {
+    NextFunction,
+    Request as ExpressRequest,
+    RequestHandler as ExpressRequestHandler,
+    Response,
+    ErrorRequestHandler as ExpressErrorRequestHandler,
+} from 'express';
 import {
     RequestHandler as ExpressServeStaticCoreRequestHandler,
+    ErrorRequestHandler as ExpressServeStaticErrorRequestHandler,
     Params,
     ParamsDictionary,
     Request as ExpressServeStaticCoreRequest,
@@ -12,7 +19,9 @@ export type Request<T extends Params = ParamsDictionary> = ExpressRequest | Expr
 
 export type RequestHandler<T extends Params = ParamsDictionary> =
     | ExpressRequestHandler
-    | ExpressServeStaticCoreRequestHandler<T>;
+    | ExpressServeStaticCoreRequestHandler<T>
+    | ExpressErrorRequestHandler
+    | ExpressServeStaticErrorRequestHandler<T>;
 
 export function* makeIteratorFromList<T>(list: T[]): IterableIterator<T> {
     for (const item of list) {
@@ -20,8 +29,10 @@ export function* makeIteratorFromList<T>(list: T[]): IterableIterator<T> {
     }
 }
 
-export function assert3ParamsType<T extends Params = ParamsDictionary>(middlewareList: RequestHandler<T>[]): boolean {
-    const not3ParamsTypeList = middlewareList.filter((m) => m.length !== 3);
+export function assertMiddlewareParamsType<T extends Params = ParamsDictionary>(
+    middlewareList: RequestHandler<T>[],
+): boolean {
+    const not3ParamsTypeList = middlewareList.filter((m) => m.length < 3 || m.length > 4);
 
     if (not3ParamsTypeList.length !== 0) {
         throw new TypeError(`INVALID_MIDDLEWARE_TYPE: ${inspect(not3ParamsTypeList)}`);
@@ -36,7 +47,7 @@ export function middlewareRunner<T extends Params = ParamsDictionary>(
     res: Response,
     next: NextFunction,
 ): void {
-    assert3ParamsType(middlewareList);
+    assertMiddlewareParamsType(middlewareList);
 
     const iterator = makeIteratorFromList(middlewareList);
 
