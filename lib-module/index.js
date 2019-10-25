@@ -5,15 +5,15 @@ export function* makeIteratorFromList(list) {
         yield item;
     }
 }
-export function assert3ParamsType(middlewareList) {
-    const not3ParamsTypeList = middlewareList.filter((m) => m.length !== 3);
+export function assertMiddlewareParamsType(middlewareList) {
+    const not3ParamsTypeList = middlewareList.filter((m) => m.length < 3 || m.length > 4);
     if (not3ParamsTypeList.length !== 0) {
         throw new TypeError(`INVALID_MIDDLEWARE_TYPE: ${inspect(not3ParamsTypeList)}`);
     }
     return true;
 }
 export function middlewareRunner(middlewareList, req, res, next) {
-    assert3ParamsType(middlewareList);
+    assertMiddlewareParamsType(middlewareList);
     const iterator = makeIteratorFromList(middlewareList);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const myNextFn = (error) => {
