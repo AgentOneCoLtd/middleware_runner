@@ -1,3 +1,7 @@
+## v0.4.0
+
+* Support `f(error, req, res, next)`
+
 ## v0.3.2
 
 * Support `Request` from both `express` and `express-serve-static-core`
