@@ -1,3 +1,6 @@
+## v0.4.2
+* Correct spelling in readme
+
 ## v0.4.1
 * Change dev nodejs version to 12 from 10
 * Upgrade libs

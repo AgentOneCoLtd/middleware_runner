@@ -1,6 +1,6 @@
 {
   "name": "@ag1/middleware_runner",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "mimic express middleware execution for testing",
   "main": "./lib/index.js",
   "jsnext:main": "./lib-module/index.js",
